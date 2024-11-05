@@ -13,11 +13,17 @@ import lombok.extern.java.Log;
 public class VeggieController {
 
     @GetMapping("/veggies")
-    public Set<Veggie> getVeggies(){
+    public Set<VeggieDTO> getVeggies(){
         log.info("Retrieving veggies list...");
-        Veggie sedano = new Veggie("sedano");
-        Veggie carota = new Veggie("carota");
-        Veggie cipolla = new Veggie("cipolla");
+        VeggieDTO sedano = new VeggieDTO();
+        sedano.setId(1L);
+        sedano.setName("sedano");
+        VeggieDTO carota = new VeggieDTO();
+        carota.setId(2L);
+        carota.setName("carota");
+        VeggieDTO cipolla = new VeggieDTO();
+        cipolla.setId(3L);
+        cipolla.setName("cipolla");
 
         return new HashSet<>(Arrays.asList(sedano, carota, cipolla));
     }

@@ -34,3 +34,6 @@ build/
 
 ### Theia IDE ###
 .theia/
+
+### Allure
+.allure/

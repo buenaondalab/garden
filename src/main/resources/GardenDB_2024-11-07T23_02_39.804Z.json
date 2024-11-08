@@ -1,0 +1,492 @@
+{
+  "tables": [
+    {
+      "id": 0,
+      "name": "Veggie",
+      "x": 0,
+      "y": 0,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": 255
+        }
+      ],
+      "comment": "",
+      "indices": [
+        {
+          "id": 0,
+          "name": "Veggie_index_name",
+          "unique": true,
+          "fields": [
+            "name"
+          ]
+        }
+      ],
+      "color": "#175e7a",
+      "key": 1730645663049
+    },
+    {
+      "id": 1,
+      "name": "VegAss",
+      "x": -32.000000000000114,
+      "y": -321,
+      "fields": [
+        {
+          "name": "veggie1",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "veggie2",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 2,
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "color": "#175e7a",
+      "key": 1730645663537
+    },
+    {
+      "id": 2,
+      "name": "Area",
+      "x": -641.9999999999999,
+      "y": -223.99999999999994,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": 255
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "color": "#175e7a",
+      "key": 1730645664017
+    },
+    {
+      "id": 3,
+      "name": "Arrangement",
+      "x": -356,
+      "y": -38,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "veggie",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "position",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 2,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "in_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 3,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "out_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 4,
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "color": "#175e7a",
+      "key": 1730645853079
+    },
+    {
+      "id": 4,
+      "name": "Subarea",
+      "x": -652,
+      "y": 35,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": 255
+        },
+        {
+          "name": "area",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 2,
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "color": "#175e7a",
+      "key": 1730645853991
+    },
+    {
+      "id": 5,
+      "name": "Seeding",
+      "x": 382,
+      "y": -325,
+      "fields": [
+        {
+          "name": "id",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": 0
+        },
+        {
+          "name": "from_month",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "to_month",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 2,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "veggie",
+          "type": "INT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 3,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "seedlings_distance",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Centimeters (cm).",
+          "id": 4,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "rows_distance",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Centimeters (cm).",
+          "id": 5,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "cultivar",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 6,
+          "size": 255
+        },
+        {
+          "name": "seed_depth",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Millimeters (mm).",
+          "id": 7,
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "Sowing time.",
+      "indices": [],
+      "color": "#175e7a",
+      "key": 1731013724977
+    }
+  ],
+  "relationships": [
+    {
+      "startTableId": 1,
+      "startFieldId": 0,
+      "endTableId": 0,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "Cascade",
+      "deleteConstraint": "Cascade",
+      "name": "Veggie_id_fk",
+      "id": 0
+    },
+    {
+      "startTableId": 1,
+      "startFieldId": 1,
+      "endTableId": 0,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "Cascade",
+      "deleteConstraint": "Cascade",
+      "name": "Veggie_id_fk",
+      "id": 1
+    },
+    {
+      "startTableId": 4,
+      "startFieldId": 2,
+      "endTableId": 2,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "Cascade",
+      "deleteConstraint": "Cascade",
+      "name": "Area_id_fk",
+      "id": 2
+    },
+    {
+      "startTableId": 3,
+      "startFieldId": 1,
+      "endTableId": 0,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "Arrangement_veggie_fk",
+      "id": 3
+    },
+    {
+      "startTableId": 3,
+      "startFieldId": 2,
+      "endTableId": 4,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "Set null",
+      "deleteConstraint": "Set null",
+      "name": "Arrangement_position_fk",
+      "id": 4
+    },
+    {
+      "startTableId": 5,
+      "startFieldId": 3,
+      "endTableId": 0,
+      "endFieldId": 0,
+      "cardinality": "many_to_one",
+      "updateConstraint": "Cascade",
+      "deleteConstraint": "Cascade",
+      "name": "Seeding_veggie_fk",
+      "id": 5
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [
+    {
+      "id": 0,
+      "name": "Positioning",
+      "x": -717,
+      "y": -285,
+      "width": 634.5,
+      "height": 533,
+      "color": "#89e667"
+    },
+    {
+      "id": 1,
+      "name": "Catalog",
+      "x": -58.000000000000114,
+      "y": -367,
+      "width": 724.0000000000001,
+      "height": 560.5,
+      "color": "#175e7a"
+    },
+    {
+      "id": 2,
+      "name": "Activity",
+      "x": 12,
+      "y": 202,
+      "width": 200,
+      "height": 200,
+      "color": "#ff9159"
+    }
+  ],
+  "database": "generic",
+  "types": [],
+  "title": "GardenDB"
+}

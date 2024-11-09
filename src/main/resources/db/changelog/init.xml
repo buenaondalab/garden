@@ -1,0 +1,130 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="andrea (generated)" id="1731193624868-1">
+        <createTable tableName="AREA">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_1E"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-2">
+        <createTable tableName="ARRANGEMENT">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_8"/>
+            </column>
+            <column name="VEGGIE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="POSITION" type="INT"/>
+            <column name="IN_DATE" type="date"/>
+            <column name="OUT_DATE" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-3">
+        <createTable tableName="SEEDING">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_A"/>
+            </column>
+            <column name="FROM_MONTH" type="SMALLINT"/>
+            <column name="TO_MONTH" type="SMALLINT"/>
+            <column name="VEGGIE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEEDLINGS_DISTANCE" type="SMALLINT"/>
+            <column name="ROWS_DISTANCE" type="SMALLINT"/>
+            <column name="CULTIVAR" type="VARCHAR(255)"/>
+            <column name="SEED_DEPTH" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-4">
+        <createTable tableName="SUBAREA">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_BB"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AREA" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-5">
+        <createTable tableName="VEGASS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_96A"/>
+            </column>
+            <column name="VEGGIE1" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEGGIE2" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-6">
+        <createTable tableName="VEGGIE">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_96"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-7">
+        <addUniqueConstraint columnNames="NAME" constraintName="CONSTRAINT_1" tableName="AREA"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-8">
+        <addUniqueConstraint columnNames="NAME" constraintName="CONSTRAINT_9" tableName="VEGGIE"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-9">
+        <addUniqueConstraint columnNames="AREA" constraintName="CONSTRAINT_B" tableName="SUBAREA"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-10">
+        <createIndex associatedWith="" indexName="CONSTRAINT_INDEX_8" tableName="ARRANGEMENT">
+            <column name="VEGGIE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-11">
+        <createIndex associatedWith="" indexName="CONSTRAINT_INDEX_86" tableName="ARRANGEMENT">
+            <column name="POSITION"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-12">
+        <createIndex associatedWith="" indexName="CONSTRAINT_INDEX_96" tableName="VEGASS">
+            <column name="VEGGIE1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-13">
+        <createIndex associatedWith="" indexName="CONSTRAINT_INDEX_96A" tableName="VEGASS">
+            <column name="VEGGIE2"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-14">
+        <createIndex associatedWith="" indexName="CONSTRAINT_INDEX_A" tableName="SEEDING">
+            <column name="VEGGIE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-15">
+        <addForeignKeyConstraint baseColumnNames="VEGGIE" baseTableName="ARRANGEMENT" constraintName="CONSTRAINT_86" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="VEGGIE" validate="true"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-16">
+        <addForeignKeyConstraint baseColumnNames="POSITION" baseTableName="ARRANGEMENT" constraintName="CONSTRAINT_86E" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="SET NULL" referencedColumnNames="ID" referencedTableName="SUBAREA" validate="true"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-17">
+        <addForeignKeyConstraint baseColumnNames="VEGGIE1" baseTableName="VEGASS" constraintName="CONSTRAINT_96AE" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="ID" referencedTableName="VEGGIE" validate="true"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-18">
+        <addForeignKeyConstraint baseColumnNames="VEGGIE2" baseTableName="VEGASS" constraintName="CONSTRAINT_96AE5" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="ID" referencedTableName="VEGGIE" validate="true"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-19">
+        <addForeignKeyConstraint baseColumnNames="VEGGIE" baseTableName="SEEDING" constraintName="CONSTRAINT_A0" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="ID" referencedTableName="VEGGIE" validate="true"/>
+    </changeSet>
+    <changeSet author="andrea (generated)" id="1731193624868-20">
+        <addForeignKeyConstraint baseColumnNames="AREA" baseTableName="SUBAREA" constraintName="CONSTRAINT_BB7" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="ID" referencedTableName="AREA" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

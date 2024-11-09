@@ -30,6 +30,7 @@
 		<java.version>21</java.version>
 		<allure.version>2.26.0</allure.version>
 		<aspectj.version>1.9.22</aspectj.version>
+		<modelmapper.version>3.0.0</modelmapper.version>
 	</properties>
 
 	<dependencyManagement>
@@ -59,9 +60,14 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
-			<version>3.0.0</version>
+			<version>${modelmapper.version}</version>
 		</dependency>
 
 		<dependency>
@@ -161,6 +167,20 @@
                     <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+    			<artifactId>liquibase-maven-plugin</artifactId>
+				<configuration>
+					<!-- <changeLogFile>db/db.changelog-master.yaml</changeLogFile> -->
+					<url>${env.GARDEN_DB_URL}</url>
+					<username>${env.GARDEN_DB_USERNAME}</username>
+					<password>${env.GARDEN_DB_PASSWORD}</password>
+					<changeLogDirectory>src/main/resources</changeLogDirectory>
+					<changeLogFile>db/changelog/root.xml</changeLogFile>
+					<outputChangeLogFile>db/changelog/init.xml</outputChangeLogFile>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

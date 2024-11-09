@@ -39,3 +39,4 @@ build/
 .allure/
 
 data/
+scripts/env.*

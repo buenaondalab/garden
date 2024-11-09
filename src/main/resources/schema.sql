@@ -1,0 +1,71 @@
+CREATE TABLE `Veggie` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL UNIQUE,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `VegAss` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`veggie1` INT NOT NULL,
+	`veggie2` INT NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Area` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL UNIQUE,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Arrangement` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`veggie` INT NOT NULL,
+	`position` INT,
+	`in_date` DATE,
+	`out_date` DATE,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Subarea` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL,
+	`area` INT NOT NULL UNIQUE,
+	PRIMARY KEY(`id`)
+);
+
+
+CREATE TABLE `Seeding` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`from_month` SMALLINT,
+	`to_month` SMALLINT,
+	`veggie` INT NOT NULL,
+	`seedlings_distance` SMALLINT,
+	`rows_distance` SMALLINT,
+	`cultivar` VARCHAR(255),
+	`seed_depth` SMALLINT,
+	PRIMARY KEY(`id`)
+);
+
+
+ALTER TABLE `VegAss`
+ADD FOREIGN KEY(`veggie1`) REFERENCES `Veggie`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `VegAss`
+ADD FOREIGN KEY(`veggie2`) REFERENCES `Veggie`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Subarea`
+ADD FOREIGN KEY(`area`) REFERENCES `Area`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `Arrangement`
+ADD FOREIGN KEY(`veggie`) REFERENCES `Veggie`(`id`)
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE `Arrangement`
+ADD FOREIGN KEY(`position`) REFERENCES `Subarea`(`id`)
+ON UPDATE SET NULL ON DELETE SET NULL;
+ALTER TABLE `Seeding`
+ADD FOREIGN KEY(`veggie`) REFERENCES `Veggie`(`id`)
+ON UPDATE CASCADE ON DELETE CASCADE;

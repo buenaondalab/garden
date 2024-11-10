@@ -106,6 +106,7 @@
 				<configuration>
 					<profiles>
 						<profile>dev</profile>
+						<profile>test</profile>
 						<profile>prod</profile>
 					</profiles>
 					<excludes>

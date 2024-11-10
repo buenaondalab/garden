@@ -34,16 +34,15 @@ pipeline {
                 ){
                     sh "mvn verify -DskipTests"
                 }
-                post {
-                    always {
-                        allure includeProperties:
-                            false,
-                            jdk: '',
-                            results: [[path: 'target/allure-results']]
-                    }
+            }
+            post {
+                always {
+                    allure includeProperties:
+                        false,
+                        jdk: '',
+                        results: [[path: 'target/allure-results']]
                 }
             }
-
         }
         stage('Deploy') {
             steps {

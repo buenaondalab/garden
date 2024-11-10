@@ -7,7 +7,8 @@ pipeline {
                 echo 'Building..'
                 withMaven (
                     maven: 'Maven 3.9.9',
-                    jdk: 'OpenJDK21'
+                    jdk: 'OpenJDK21',
+                    publisherStrategy: 'EXPLICIT'
                 ){
                     sh "mvn clean compile"
                 }
@@ -23,22 +24,23 @@ pipeline {
                     sh "mvn test"
                 }
             }
-            post {
-                always {
-                    allure includeProperties:
-                        false,
-                        jdk: '',
-                        results: [[path: 'allure-results']]
-                }
-            }
         }
         stage('Package') {
             steps {
                 withMaven (
                     maven: 'Maven 3.9.9',
-                    jdk: 'OpenJDK21'
+                    jdk: 'OpenJDK21',
+                    publisherStrategy: 'EXPLICIT'
                 ){
                     sh "mvn verify -DskipTests"
+                }
+                post {
+                    always {
+                        allure includeProperties:
+                            false,
+                            jdk: '',
+                            results: [[path: 'target/allure-results']]
+                    }
                 }
             }
 

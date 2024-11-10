@@ -5,9 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withMaven {
+                withMaven (
                     maven: 'Maven 3.9.9'
                     jdk: 'OpenJDK21'
+                ){
                     sh "./mvnw clean verify -Dspring-boot.run.profiles=prod"
                 }
             }

@@ -9,8 +9,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @DataJpaTest(showSql = true)
+@ActiveProfiles(value = "test")
 class VeggieRepoTests {
 
     @Autowired

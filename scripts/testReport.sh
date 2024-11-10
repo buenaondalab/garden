@@ -1,3 +1,3 @@
 #!/bin/bash
 # test with coverage
-../mvnw -f .. clean test allure:report
+./mvnw clean test allure:report

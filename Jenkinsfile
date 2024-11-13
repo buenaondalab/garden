@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent gardenagent
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building...'
                 withMaven (
                     maven: 'Maven 3.9.9',
                     jdk: 'OpenJDK21',
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
                 withMaven (
                     maven: 'Maven 3.9.9',
                     jdk: 'OpenJDK21'
@@ -27,6 +27,7 @@ pipeline {
         }
         stage('Package') {
             steps {
+                echo 'Packaging...'
                 withMaven (
                     maven: 'Maven 3.9.9',
                     jdk: 'OpenJDK21',
@@ -46,7 +47,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying...'
             }
         }
     }

@@ -1,0 +1,32 @@
+services:
+  garden-catalog:
+    build: .
+    ports:
+      - 8880:8080
+    depends_on:
+      garden-catalog-db:
+        condition: service_healthy
+        restart: true
+    environment:
+      - GARDEN_DB_URL=${GARDEN_DB_URL}
+      - GARDEN_DB_USERNAME=${GARDEN_DB_USERNAME}
+      - GARDEN_DB_PASSWORD=${GARDEN_DB_PASSWORD}
+      - EUREKA_USER=${EUREKA_USER}
+      - EUREKA_PASSWORD=${EUREKA_PASSWORD}
+
+  garden-catalog-db:
+    image: mysql:9.1.0
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s

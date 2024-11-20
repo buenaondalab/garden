@@ -37,6 +37,8 @@ build/
 
 ### Allure
 .allure/
+ajcore.*
 
 data/
 scripts/env.*
+.env

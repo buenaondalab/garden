@@ -1,5 +1,5 @@
 services:
-  garden-catalog:
+  garden-catalog-1:
     build: .
     ports:
       - 8880:8080
@@ -7,6 +7,25 @@ services:
       garden-catalog-db:
         condition: service_healthy
         restart: true
+      eureka:
+        condition: service_healthy
+    environment:
+      - GARDEN_DB_URL=${GARDEN_DB_URL}
+      - GARDEN_DB_USERNAME=${GARDEN_DB_USERNAME}
+      - GARDEN_DB_PASSWORD=${GARDEN_DB_PASSWORD}
+      - EUREKA_USER=${EUREKA_USER}
+      - EUREKA_PASSWORD=${EUREKA_PASSWORD}
+
+  garden-catalog-2:
+    build: .
+    ports:
+      - 8881:8080
+    depends_on:
+      garden-catalog-db:
+        condition: service_healthy
+        restart: true
+      eureka:
+        condition: service_healthy
     environment:
       - GARDEN_DB_URL=${GARDEN_DB_URL}
       - GARDEN_DB_USERNAME=${GARDEN_DB_USERNAME}
@@ -16,7 +35,7 @@ services:
 
   garden-catalog-db:
     image: mysql:9.1.0
-    restart: always
+    restart: unless-stopped
     ports:
       - 3306:3306
     environment:
@@ -30,3 +49,18 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
+
+  eureka:
+    image: eureka-server
+    restart: on-failure
+    ports:
+      - 8761:8761
+    environment:
+      - EUREKA_USER=${EUREKA_USER}
+      - EUREKA_PASSWORD=${EUREKA_PASSWORD}
+    healthcheck:
+      test: "curl --fail --silent -u ${EUREKA_USER}:${EUREKA_PASSWORD} http://localhost:8761/actuator/health | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
